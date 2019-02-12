@@ -15,14 +15,12 @@
 import webapp2
 from datetime import datetime
 import time
-from pytz import timezone
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-    	curr_time = datetime.now(timezone('America/Los_Angeles'))
-
+    	curr_time = datetime.now()
         self.response.headers['Content-Type'] = 'text/html'
-        self.response.write('<html><h1>Hey there, PyLadies!! The current time is: %s</h1></html>' % curr_time)
+        self.response.write('<html><h1>Hey there, PyLadies!! The current time is: %s GMT</h1></html>' % curr_time)
 
 
 app = webapp2.WSGIApplication([
